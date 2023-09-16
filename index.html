@@ -1,106 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Phone Number Validator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <title>Phone Number Validator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
 
-    h1 {
-      color: #333;
-    }
+      h1 {
+        color: #333;
+      }
 
-    p {
-      color: #666;
-    }
+      p {
+        color: #666;
+      }
 
-    #container {
-      width: 400px;
-      margin: 20px auto;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 55px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    }
+      #container {
+        width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 55px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
 
-    button {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-    }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
 
-    button:hover {
-      background-color: #555;
-    }
+      button:hover {
+        background-color: #555;
+      }
 
-    #result {
-      margin-top: 10px;
-      color: #555;
-      font-weight: bold;
-    }
-
-  
-  </style>
-</head>
-<body>
-    <h1>Phone Number and Email Validator</h1>
+      #result {
+        margin-top: 10px;
+        color: #555;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Phone Number and Email Validator (deploy 2)</h1>
     <div id="container">
-        <div id="phoneSection">
+      <div id="phoneSection">
         <p>Enter a phone number in the format 123 456-7890:</p>
-        <input type="text" id="phoneInput" placeholder="123 456-7890" oninput="validatePhoneNumber()">
-       
-        <p id="phoneResult"></p>
-        </div>
+        <input
+          type="text"
+          id="phoneInput"
+          placeholder="123 456-7890"
+          oninput="validatePhoneNumber()"
+        />
 
-       
-        <div id="emailSection">
+        <p id="phoneResult"></p>
+      </div>
+
+      <div id="emailSection">
         <p>Enter an email address:</p>
-        <input type="text" id="emailInput" placeholder="example@example.com" oninput="validateEmail()">
-      
+        <input
+          type="text"
+          id="emailInput"
+          placeholder="example@example.com"
+          oninput="validateEmail()"
+        />
+
         <p id="emailResult"></p>
-        </div>
+      </div>
     </div>
 
+    <script>
+      function validatePhoneNumber() {
+        const phoneNumberInput = document.getElementById("phoneInput");
+        const phoneNumber = phoneNumberInput.value;
+        const phoneNumberRegex = /^[0-9][0-9\-\s]{7,10}[0-9]$/;
 
-  <script>
-    function validatePhoneNumber() {
-      const phoneNumberInput = document.getElementById('phoneInput');
-      const phoneNumber = phoneNumberInput.value;
-      const phoneNumberRegex = /^[0-9][0-9\-\s]{7,10}[0-9]$/;
-
-      if (phoneNumberRegex.test(phoneNumber)) {
-        document.getElementById('phoneResult').textContent = 'Valid phone number!';
-      } else {
-        document.getElementById('phoneResult').textContent = 'Invalid phone number. Please use the format 123 456-7890.';
+        if (phoneNumberRegex.test(phoneNumber)) {
+          document.getElementById("phoneResult").textContent =
+            "Valid phone number!";
+        } else {
+          document.getElementById("phoneResult").textContent =
+            "Invalid phone number. Please use the format 123 456-7890.";
+        }
       }
-    }
 
-    function validateEmail() {
-      const emailInput = document.getElementById('emailInput');
-      const email = emailInput.value;
-      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      function validateEmail() {
+        const emailInput = document.getElementById("emailInput");
+        const email = emailInput.value;
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-      if (emailRegex.test(email)) {
-        document.getElementById('emailResult').textContent = 'Valid email address!';
-      } else {
-        document.getElementById('emailResult').textContent = 'Invalid email address. Please enter a valid email.';
+        if (emailRegex.test(email)) {
+          document.getElementById("emailResult").textContent =
+            "Valid email address!";
+        } else {
+          document.getElementById("emailResult").textContent =
+            "Invalid email address. Please enter a valid email.";
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
